@@ -14,14 +14,19 @@ def imgtograyscale(filename, Class):
     for index in pixels:
         data.append(index[0])
     data.append(Class)
+    for row in range(height):
+        for column in range(width):
+            print("%3d" % data[(width*row)+column]),
+        print()
+    print()
     return data
 
 # define column and create csv file
 def insertColumn():
     column = []
-    for j in range(width):
-        for i in range(height):
-            columnname = 'Pixel_R'+str(i)+'C'+str(j)
+    for j in range(height):
+        for i in range(width):
+            columnname = 'Pixel_R'+str(j)+'C'+str(i)
             column.append(columnname)                    
 
     column.append('Class')
