@@ -23,16 +23,16 @@ def imgtograyscale(filename, Class):
 
 # define column and create csv file
 def insertColumn():
-    column = []
-    for j in range(height):
-        for i in range(width):
-            columnname = 'Pixel_R'+str(j)+'C'+str(i)
-            column.append(columnname)                    
+    columnname = []
+    for row in range(height):
+        for column in range(width):
+            tmpOfColumnName = 'Pixel_R'+str(row)+'C'+str(column)
+            columnname.append(tmpOfColumnName)                    
 
-    column.append('Class')
+    columnname.append('Class')
     with open(FILENAME, 'w') as writefile:
         writer = csv.writer(writefile)
-        writer.writerow(column)
+        writer.writerow(columnname)
     writefile.close()
 
 # insert data
